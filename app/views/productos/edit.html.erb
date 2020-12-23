@@ -1,0 +1,33 @@
+<div class="container">
+<h1 class="m-3">Editar producto</h1>
+<%= form_with scope: @item, url: productos_actualizar_path, method: :PUT do |f| %>
+ <%= f.hidden_field  :id %>  
+ <p>
+ <label>Nombre</label> <br>
+ <%= f.text_field :nombre, :class => 'form-control' %>
+ </p>
+ <p>
+ <label>Cantidad minima</label> <br>
+ <%= f.text_field :cant_min, :class => 'form-control' %>
+ </p>
+ <p>
+ <label>Cantidad actual</label> <br>
+ <%= f.text_field :cant_act, :class => 'form-control' %>
+ </p>
+ <p>
+ <label>Precio</label> <br>
+ <%= f.text_field :precio, :class => 'form-control' %>
+ </p>
+ <p>
+ <label>Activo</label> <br>
+ <%= f.check_box :activo, :class => 'form-control' %>
+ </p>
+ <p><label>Marca</label>
+  <%= f.collection_select :marca_id, Marca.all, :id, :nombre, {}, { :class => 'form-control' } %> 
+ </p>
+  <p><label>Rubro</label>
+  <%= f.collection_select :rubro_id, Rubro.all, :id, :nombre, {}, { :class => 'form-control' } %> 
+ </p>
+ <%= f.submit "Enviar", disable_with: 'Submiting...', :class => 'btn btn-primary' %>
+<% end %>
+</div>

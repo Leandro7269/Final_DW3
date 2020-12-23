@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Id</th><th>Nombre</th><th>Cantidad minima</th><th>Cantidad actual</th><th>precio</th><th>Marca</th><th>Rubro</th><th>Estado</th>
+                <th class="text-center"><%= link_to 'Nuevo', productos_nuevo_path, :class => "btn btn-primary" %></th>
+            </tr>
+        </thead>
+        <tbody>
+        <%  @lista.each do |item|  %>
+            <tr>
+            <td><%= item.id %></td>
+            <td><%= item.nombre %></td>
+            <td><%= item.cant_min %></td>
+            <td><%= item.cant_act %></td>
+            <td><%= item.precio %></td>
+            <td><%= item.marca_id %></td>
+            <td><%= item.rubro_id %></td>
+            <td><%= item.activo %></td>
+            <td class="text-center"><%= link_to 'Editar', productos_editar_path(item.id), :class => "btn btn-success" %></td>
+            
+            </tr>   
+        <% end %>
+        </tbody>
+    </table>
+</div>
